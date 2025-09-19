@@ -1,5 +1,5 @@
 // src/lib/api.ts
-import axios,{ AxiosInstance, AxiosResponse, AxiosError } from 'axios';
+import axios, { AxiosInstance, AxiosResponse, AxiosError } from 'axios';
 
 // Define TypeScript interfaces for better type safety
 interface MessageStats {
@@ -48,6 +48,23 @@ interface PaginatedResponse<T> {
   };
 }
 
+// Registration interfaces
+interface PersonalRegisterData {
+  firstName: string;
+  lastName: string;
+  email: string;
+  password: string;
+  confirmPassword: string;
+  acceptTerms: boolean;
+  planType?: string;
+}
+
+interface BusinessRegisterData extends PersonalRegisterData {
+  companyName: string;
+  industry?: string;
+  companySize?: string;
+}
+
 class ApiClient {
   public client: AxiosInstance;
 
@@ -89,9 +106,41 @@ class ApiClient {
     return response.data;
   }
 
-  async register(userData: any) {
-    const response = await this.client.post('/auth/register', userData);
+  // B2C Personal Registration
+  async registerPersonal(userData: PersonalRegisterData) {
+    const response = await this.client.post('/auth/register/personal', userData);
     return response.data;
+  }
+
+  // B2B Business Registration
+  async registerBusiness(userData: BusinessRegisterData) {
+    const response = await this.client.post('/auth/register/business', userData);
+    return response.data;
+  }
+
+  // Register with invitation (B2B team join)
+  async registerWithInvite(inviteToken: string, userData: PersonalRegisterData) {
+    const response = await this.client.post(`/auth/register/invite?token=${inviteToken}`, userData);
+    return response.data;
+  }
+
+  // Invite user to business (B2B)
+  async inviteUser(inviteData: {
+    email: string;
+    role?: 'admin' | 'user' | 'viewer';
+  }) {
+    const response = await this.client.post('/auth/invite', inviteData);
+    return response.data;
+  }
+
+  // Backward compatibility - defaults to personal registration
+  async register(userData: any) {
+    // If companyName is provided and it's not an invitation, use business registration
+    if (userData.companyName && !userData.inviteToken) {
+      return this.registerBusiness(userData);
+    }
+    // Otherwise use personal registration
+    return this.registerPersonal(userData);
   }
 
   // ===== Dashboard =====
@@ -240,6 +289,11 @@ class ApiClient {
     return response.data;
   }
 
+  async verifyPhoneNumber(id: string) {
+    const response = await this.client.post(`/phone-numbers/${id}/verify`);
+    return response.data;
+  }
+
   // ===== Templates =====
   async getTemplates() {
     const response = await this.client.get('/templates');
@@ -263,6 +317,27 @@ class ApiClient {
 
   async deleteTemplate(id: string) {
     const response = await this.client.delete(`/templates/${id}`);
+    return response.data;
+  }
+
+  // ===== Team Management (B2B) =====
+  async getTeamMembers() {
+    try {
+      const response = await this.client.get('/tenants/members');
+      return response.data;
+    } catch (error) {
+      console.error('Team members error:', error);
+      return { members: [] };
+    }
+  }
+
+  async removeTeamMember(userId: string) {
+    const response = await this.client.delete(`/tenants/members/${userId}`);
+    return response.data;
+  }
+
+  async updateTeamMemberRole(userId: string, role: string) {
+    const response = await this.client.put(`/tenants/members/${userId}`, { role });
     return response.data;
   }
 
@@ -373,6 +448,16 @@ class ApiClient {
     return response.data;
   }
 
+  async getCurrentTenant() {
+    try {
+      const response = await this.client.get('/tenants/current');
+      return response.data;
+    } catch (error) {
+      console.error('Current tenant error:', error);
+      return null;
+    }
+  }
+
   // ===== Utility methods =====
   async healthCheck() {
     try {
@@ -382,9 +467,46 @@ class ApiClient {
       return { status: 'error', message: 'API is not reachable' };
     }
   }
+  async getPlatformStats() {
+  const response = await this.client.get('/admin/dashboard');
+  return response.data;
+}
+
+async getPlatformTenants(params: any) {
+  const response = await this.client.get('/admin/tenants', { params });
+  return response.data;
+}
+
+async updateTenantStatus(tenantId: string, status: string, reason?: string) {
+  const response = await this.client.put(`/admin/tenants/${tenantId}/status`, {
+    status,
+    reason
+  });
+  return response.data;
+}
+
+  // ===== Upload methods =====
+  async uploadFile(file: File, type: 'media' | 'document' = 'media') {
+    const formData = new FormData();
+    formData.append('file', file);
+    formData.append('type', type);
+
+    const response = await this.client.post('/upload', formData, {
+      headers: {
+        'Content-Type': 'multipart/form-data',
+      },
+    });
+    return response.data;
+  }
 }
 
 export const apiClient = new ApiClient();
 
 // Export types for use in components
-export type { MessageStats, DashboardStats, PaginatedResponse };
+export type { 
+  MessageStats, 
+  DashboardStats, 
+  PaginatedResponse, 
+  PersonalRegisterData, 
+  BusinessRegisterData 
+};
