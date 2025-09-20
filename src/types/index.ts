@@ -39,6 +39,7 @@ export interface Message {
 }
 
 export interface MessageTemplate {
+  rejectionReason: ReactNode;
   id: string;
   templateName: string;
   language: string;

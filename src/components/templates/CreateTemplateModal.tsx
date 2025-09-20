@@ -395,7 +395,7 @@ export function CreateTemplateModal({ isOpen, onClose, onSave }: CreateTemplateM
                         type="button"
                         onClick={addButton}
                         disabled={formData.buttons.length >= 3}
-                        className="inline-flex items-center px-3 py-1.5 text-xs font-medium text-primary-600 bg-primary-50 rounded-lg hover:bg-primary-100 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                        className="inline-flex items-center px-3 py-1.5 text-xs font-medium text-black bg-blue-200 hover:bg-blue-400  rounded-lg hover:bg-primary-100 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
                       >
                         <PlusIcon className="h-4 w-4 mr-1" />
                         Add Button
@@ -503,14 +503,14 @@ export function CreateTemplateModal({ isOpen, onClose, onSave }: CreateTemplateM
                     <button
                       type="button"
                       onClick={onClose}
-                      className="px-4 py-2 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-lg hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors"
+                      className="px-4 py-2 text-sm font-medium text-gray-700 bg-blue-200 border border-gray-300 rounded-lg hover:bg-blue-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors"
                     >
                       Cancel
                     </button>
                     <button
                       type="submit"
                       disabled={loading}
-                      className="px-4 py-2 text-sm font-medium text-white bg-primary-600 rounded-lg hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 disabled:opacity-50 disabled:cursor-not-allowed transition-colors"
+                      className="px-4 py-2 text-sm font-medium text-gray-700 bg-blue-200 border border-gray-300 rounded-lg hover:bg-blue-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors"
                     >
                       {loading ? 'Creating...' : 'Create Template'}
                     </button>
