@@ -2,11 +2,12 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { PaperAirplaneIcon, FunnelIcon } from '@heroicons/react/24/outline';
+import { PaperAirplaneIcon, FunnelIcon, ChatBubbleLeftRightIcon, CheckCircleIcon, ClockIcon } from '@heroicons/react/24/outline';
 import { MessagesList } from '@/components/messages/MessagesList';
 import { SendMessageModal } from '@/components/messages/SendMessageModal';
 import { MessageFilters } from '@/components/messages/MessageFilters';
 import { useMessages } from '@/hooks/useMessages';
+import { XCircleIcon } from 'lucide-react';
 
 export default function MessagesPage() {
   const [showSendModal, setShowSendModal] = useState(false);
