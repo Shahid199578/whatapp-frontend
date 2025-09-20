@@ -21,7 +21,7 @@ export function Hero() {
           <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4 mb-12">
             <Link
               href="/auth/register"
-              className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 bg-white text-grey text-lg font-medium rounded-xl hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors shadow-lg"
+              className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 bg-white text-black text-lg font-medium rounded-xl hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors shadow-lg"
             >
               Start Free Trial
               <ArrowRightIcon className="ml-2 h-5 w-5" />

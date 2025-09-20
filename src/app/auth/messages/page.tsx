@@ -48,7 +48,7 @@ export default function MessagesPage() {
         </div>
         <button
           onClick={() => setShowSendModal(true)}
-          className="inline-flex items-center px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+          className="inline-flex items-center px-4 py-2 bg-blue-600 text-black text-sm font-medium rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
         >
           <PaperAirplaneIcon className="mr-2 h-4 w-4" />
           Send Message

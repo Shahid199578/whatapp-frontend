@@ -36,7 +36,7 @@ export function DashboardSidebar() {
   );
 
   return (
-    <div className="w-64 bg-white shadow-lg border-r border-gray-200">
+    <div className="w-64 shadow-lg border-r border-gray-200">
       {/* Logo */}
       <div className="p-6 border-b border-gray-200">
         <div className="flex items-center">
@@ -48,7 +48,7 @@ export function DashboardSidebar() {
       </div>
       
       {/* Navigation */}
-      <nav className="mt-6 px-3">
+      <nav className="mt-6 px-3 bg-red">
         <ul className="space-y-1">
           {filteredNavigation.map((item) => {
             const isActive = pathname === item.href;
@@ -59,7 +59,7 @@ export function DashboardSidebar() {
                   className={`
                     group flex items-center px-3 py-2 text-sm font-medium rounded-lg transition-all duration-200
                     ${isActive 
-                      ? 'bg-primary-50 text-primary-700 border-r-2 border-primary-600' 
+                      ? 'bg-primary-50 text-green-500 border-r-2 border-primary-600' 
                       : 'text-gray-700 hover:text-gray-900 hover:bg-gray-100'
                     }
                   `}
