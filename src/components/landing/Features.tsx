@@ -64,7 +64,7 @@ export function Features() {
             Everything you need to succeed
           </h2>
           <p className="text-xl text-gray-600 max-w-3xl mx-auto">
-            Built on Meta's official WhatsApp Cloud API with enterprise features 
+            Built on Meta&apos;s official WhatsApp Cloud API with enterprise features 
             for businesses of all sizes.
           </p>
         </div>

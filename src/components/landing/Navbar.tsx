@@ -36,6 +36,9 @@ export function Navbar() {
             <a href="#support" className="text-gray-600 hover:text-gray-900 transition-colors">
               Support
             </a>
+            <a href="#testimonial" className="text-gray-600 hover:text-gray-900 transition-colors">
+              Testimonial
+            </a>
           </div>
 
           {/* Auth Buttons */}
@@ -100,6 +103,13 @@ export function Navbar() {
                 onClick={() => setMobileMenuOpen(false)}
               >
                 Support
+              </a>
+              <a
+                href="#support"
+                className="block px-3 py-2 text-gray-600 hover:text-gray-900 hover:bg-gray-50 rounded-md transition-colors"
+                onClick={() => setMobileMenuOpen(false)}
+              >
+                Testimonial
               </a>
               <div className="border-t border-gray-200 pt-4 pb-3">
                 <div className="flex items-center px-3 space-x-3">

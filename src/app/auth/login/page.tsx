@@ -28,7 +28,7 @@ export default function LoginPage() {
   }, [isAuthenticated, authLoading, router]);
 
   // Don't render if still checking auth or already authenticated
-  if (authLoading || isAuthenticated) {
+  if (authLoading || isAuthenticated) {Link
     return (
       <div className="min-h-screen flex items-center justify-center">
         <div className="animate-spin rounded-full h-32 w-32 border-b-2 border-blue-600"></div>
@@ -148,7 +148,7 @@ export default function LoginPage() {
 
           <div className="text-center">
             <span className="text-sm text-gray-600">
-              Don't have an account?{' '}
+              Don&apos;t have an account?{' '}
               <Link href="/auth/register" className="text-blue-600 hover:text-blue-500 font-medium">
                 Sign up
               </Link>
