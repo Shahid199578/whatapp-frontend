@@ -2,11 +2,12 @@
 'use client';
 
 import { useState, useEffect } from 'react';
-import { PaperAirplaneIcon, FunnelIcon } from '@heroicons/react/24/outline';
+import { PaperAirplaneIcon, FunnelIcon, ChatBubbleLeftRightIcon, CheckCircleIcon, ClockIcon } from '@heroicons/react/24/outline';
 import { MessagesList } from '@/components/messages/MessagesList';
 import { SendMessageModal } from '@/components/messages/SendMessageModal';
 import { MessageFilters } from '@/components/messages/MessageFilters';
 import { useMessages } from '@/hooks/useMessages';
+import { XCircleIcon } from 'lucide-react';
 
 export default function MessagesPage() {
   const [showSendModal, setShowSendModal] = useState(false);
@@ -48,7 +49,7 @@ export default function MessagesPage() {
         </div>
         <button
           onClick={() => setShowSendModal(true)}
-          className="inline-flex items-center px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
+          className="inline-flex items-center px-4 py-2 bg-blue-600 text-black text-sm font-medium rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500"
         >
           <PaperAirplaneIcon className="mr-2 h-4 w-4" />
           Send Message

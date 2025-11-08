@@ -39,11 +39,11 @@ export function MessageFilters({ filters, onChange }: MessageFiltersProps) {
     <div className="flex flex-wrap items-center gap-4">
       {/* Status Filter */}
       <div className="flex flex-col">
-        <label className="text-xs font-medium text-gray-700 mb-1">Status</label>
+        <label className="text-sm font-medium text-gray-700 mb-1 justify-center">Status</label>
         <select
           value={filters.status}
           onChange={(e) => handleFilterChange('status', e.target.value)}
-          className="text-sm border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500"
+          className="text-xs border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500 text-black"
         >
           <option value="all">All Status</option>
           <option value="queued">Queued</option>
@@ -56,11 +56,11 @@ export function MessageFilters({ filters, onChange }: MessageFiltersProps) {
 
       {/* Phone Number Filter */}
       <div className="flex flex-col">
-        <label className="text-xs font-medium text-gray-700 mb-1">Phone Number</label>
+        <label className="text-sm font-medium text-gray-700 mb-1">Phone Number</label>
         <select
           value={filters.phoneNumber}
           onChange={(e) => handleFilterChange('phoneNumber', e.target.value)}
-          className="text-sm border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500"
+          className="text-xs border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500 text-black"
         >
           <option value="all">All Numbers</option>
           {phoneNumbers.map((phone) => (
@@ -73,11 +73,11 @@ export function MessageFilters({ filters, onChange }: MessageFiltersProps) {
 
       {/* Date Range Filter */}
       <div className="flex flex-col">
-        <label className="text-xs font-medium text-gray-700 mb-1">Date Range</label>
+        <label className="text-sm font-medium text-gray-700 mb-1">Date Range</label>
         <select
           value={filters.dateRange}
           onChange={(e) => handleFilterChange('dateRange', e.target.value)}
-          className="text-sm border-gray-300 rounded-md focus:ring-primary-500 focus:border-primary-500"
+          className="text-xs border-gray-300 rounded-md focus:ring-primary-500 text-black focus:border-primary-500"
         >
           <option value="1d">Last 24 hours</option>
           <option value="7d">Last 7 days</option>

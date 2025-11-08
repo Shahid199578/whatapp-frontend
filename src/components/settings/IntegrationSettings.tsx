@@ -22,7 +22,7 @@ interface IntegrationSettingsProps {
     metaBusinessId: string;
     stripeCustomerId: string;
   };
-  onUpdate: (data: any) => Promise<void>;
+  onUpdate: (data: unknown) => Promise<void>;
   loading: boolean;
 }
 
@@ -61,7 +61,7 @@ export function IntegrationSettings({ data, onUpdate, loading }: IntegrationSett
     try {
       await onUpdate(formData);
       setErrors({});
-    } catch (error: any) {
+    } catch (error: unknown) {
       setErrors({ 
         general: error.response?.data?.message || 'Failed to update integration settings' 
       });
@@ -95,7 +95,7 @@ export function IntegrationSettings({ data, onUpdate, loading }: IntegrationSett
         success: true,
         message: response.data.message || 'Webhook test successful'
       });
-    } catch (error: any) {
+    } catch (error: unknown) {
       setWebhookTestResult({
         success: false,
         message: error.response?.data?.message || 'Webhook test failed'

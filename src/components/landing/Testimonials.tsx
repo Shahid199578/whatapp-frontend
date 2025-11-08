@@ -1,6 +1,9 @@
 // src/components/landing/Testimonials.tsx
 import { StarIcon } from '@heroicons/react/24/outline';
 
+import Link from 'next/link';
+import { ArrowRightIcon } from '@heroicons/react/24/outline';
+
 const testimonials = [
   {
     content: "WhatsApp Portal has transformed our customer communication. The multi-tenant architecture is perfect for our agency.",
@@ -33,7 +36,7 @@ const testimonials = [
 
 export function Testimonials() {
   return (
-    <section className="py-20 bg-white">
+    <section id="testimonial" className="py-20 bg-grey mb-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center mb-16">
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">
@@ -50,7 +53,7 @@ export function Testimonials() {
                 ))}
               </div>
               <p className="text-gray-600 mb-6 text-lg">
-                "{testimonial.content}"
+                &quot;{testimonial.content}&quot;
               </p>
               <div className="flex items-center">
                 <div className="w-12 h-12 bg-gray-300 rounded-full flex items-center justify-center">
@@ -67,6 +70,32 @@ export function Testimonials() {
           ))}
         </div>
       </div>
+      <section className="py-20 bg-primary-600">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+        <h2 className="text-3xl md:text-4xl font-bold text-white mb-4">
+          Ready to get started?
+        </h2>
+        <p className="text-xl text-black mb-8 max-w-3xl mx-auto">
+          Join thousands of businesses using WhatsApp Portal to scale their messaging.
+          Start your free trial today.
+        </p>
+        <div className="flex flex-col sm:flex-row items-center justify-center space-y-4 sm:space-y-0 sm:space-x-4">
+          <Link
+            href="/auth/register"
+            className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 bg-blue-200 text-black text-lg font-medium rounded-xl hover:bg-blue-400 transition-colors shadow-lg"
+          >
+            Start Free Trial
+            <ArrowRightIcon className="ml-2 h-5 w-5" />
+          </Link>
+          <Link
+            href="/contact"
+            className="w-full sm:w-auto inline-flex items-center justify-center px-8 py-4 bg-blue-200 text-black text-lg font-medium rounded-xl hover:bg-blue-400 transition-colors shadow-lg"
+          >
+            Contact Sales
+          </Link>
+        </div>
+      </div>
+    </section>
     </section>
   );
 }

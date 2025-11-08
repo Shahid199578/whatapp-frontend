@@ -72,7 +72,7 @@ export default function MessagesPage() {
         </div>
         <button
           onClick={() => setShowSendModal(true)}
-          className="inline-flex items-center px-4 py-2 bg-primary-600 text-grey text-sm font-medium rounded-lg hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors"
+          className="inline-flex items-center px-4 py-2 bg-blue-200 text-black text-sm font-medium rounded-lg hover:bg-grey-700 border-radius-3px focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 transition-colors"
         >
           <PaperAirplaneIcon className="mr-2 h-4 w-4" />
           Send Message
@@ -90,7 +90,7 @@ export default function MessagesPage() {
               placeholder="Search messages..."
               value={filters.search}
               onChange={(e) => setFilters(prev => ({ ...prev, search: e.target.value }))}
-              className="w-full pl-10 pr-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
+              className="w-full pl-10 pr-4 py-2 border border-gray-300 text-gray-600 rounded-lg focus:ring-2 focus:ring-primary-500 focus:border-transparent"
             />
           </div>
           

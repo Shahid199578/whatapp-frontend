@@ -88,7 +88,7 @@ export function SendMessageModal({ isOpen, onClose, onSend }: SendMessageModalPr
                     <select
                       value={formData.phoneNumberId}
                       onChange={(e) => setFormData(prev => ({ ...prev, phoneNumberId: e.target.value }))}
-                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                      className="mt-1 block w-full text-grey rounded-md border-gray-600 shadow-sm focus:border-blue-200 focus:ring-blue-200"
                       required
                     >
                       <option value="">Select phone number</option>
@@ -105,7 +105,7 @@ export function SendMessageModal({ isOpen, onClose, onSend }: SendMessageModalPr
                       value={formData.to}
                       onChange={(e) => setFormData(prev => ({ ...prev, to: e.target.value }))}
                       placeholder="+1234567890"
-                      className="mt-1 block w-full rounded-md border-gray-300 shadow-sm focus:border-blue-500 focus:ring-blue-500"
+                      className="mt-1 block w-full text-grey-900 rounded-md border-gray-900 shadow-sm focus:border-blue-200 focus:ring-blue-200"
                       required
                     />
                   </div>
@@ -131,14 +131,14 @@ export function SendMessageModal({ isOpen, onClose, onSend }: SendMessageModalPr
                     <button
                       type="button"
                       onClick={onClose}
-                      className="px-4 py-2 text-sm font-medium text-gray-700 bg-gray-100 rounded-md hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
+                      className="px-4 py-2 text-sm font-medium text-black bg-blue-200 rounded-md hover:bg-blue-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-gray-500"
                     >
                       Cancel
                     </button>
                     <button
                       type="submit"
                       disabled={loading}
-                      className="px-4 py-2 text-sm font-medium text-white bg-blue-600 rounded-md hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
+                      className="px-4 py-2 text-sm font-medium text-black bg-blue-200 rounded-md hover:bg-blue-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 disabled:opacity-50 disabled:cursor-not-allowed"
                     >
                       {loading ? 'Sending...' : 'Send Message'}
                     </button>

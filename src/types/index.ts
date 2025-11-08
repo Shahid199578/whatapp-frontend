@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 // src/types/index.ts
 export interface User {
   id: string;
@@ -30,7 +32,7 @@ export interface Message {
   id: string;
   recipientPhone: string;
   messageType: 'text' | 'template' | 'media';
-  content: any;
+  content: unknown;
   status: 'queued' | 'sent' | 'delivered' | 'read' | 'failed';
   createdAt: string;
   sentAt?: string;
@@ -39,6 +41,7 @@ export interface Message {
 }
 
 export interface MessageTemplate {
+  rejectionReason: ReactNode;
   id: string;
   templateName: string;
   language: string;
@@ -47,7 +50,7 @@ export interface MessageTemplate {
   headerText?: string;
   bodyText: string;
   footerText?: string;
-  buttons?: any[];
+  buttons?: unknown[];
 }
 
 export interface UsageStats {
